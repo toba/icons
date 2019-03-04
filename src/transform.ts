@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { is } from '@toba/tools/cjs';
+import { is, slug } from '@toba/tools/cjs';
 import { icons } from './index';
 
 /** Index of all files in the SVG path. */
@@ -34,6 +34,16 @@ async function main() {
    }
 
    console.log(`Found ${index.size} SVG files`);
+
+   Object.keys(icons).forEach(key => {
+      const name = slug(icons[key]) + '.svg';
+      console.log(`Searching for ${name}`);
+      if (index.has(name)) {
+         console.log('✅ found');
+      } else {
+         console.log('❌ not found');
+      }
+   });
 }
 
 /**

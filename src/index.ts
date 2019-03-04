@@ -1,5 +1,5 @@
 export const icons: { [key: string]: string } = {
-   Logo: 'Colored Logo',
+   Logo: 'Logo Colored',
    NavMenuHorizontal: 'navigation-menu-horizontal',
    NavMenuVertical: 'navigation-menu-vertical'
 };

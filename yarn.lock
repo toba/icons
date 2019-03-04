@@ -803,9 +803,9 @@
     jest-date-mock "^1.0.6"
 
 "@toba/tools@^6.0.0", "@toba/tools@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-6.3.0.tgz#b53385cbb6129986904ac5faf084205389e5c9e2"
-  integrity sha512-uM2qd0KU0vr+pL8e9vs7qW57Kn5iXoCMnNUpVDDk2p384TWReSZcthp6XO2biMAABnn2GXVmcZ6/L6DgHB/2Pw==
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-6.3.2.tgz#63c2d8054e938df6a7426582c34adeac24b33cd4"
+  integrity sha512-CRD+30OcogIqu/lXmqvVvg0soVelHJS1aqZFOj3qM/+yQBFKh4NqkjFpzJzCmzag0lkuxKK+wDHdzryWxiT1JA==
 
 "@types/events@*":
   version "3.0.0"
