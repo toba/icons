@@ -1,7 +1,7 @@
 {
    "name": "@toba/icons",
    "version": "1.0.0",
-   "description": "toba icons module",
+   "description": "Toba icons module",
    "private": false,
    "author": {
       "name": "Jason Abbott",
@@ -11,11 +11,10 @@
    "publishConfig": {
       "access": "public"
    },
-   "main": "dist/index.js",
-   "types:": "dist/index.d.ts",
-   "files": ["dist/**/*"],
-   "sideEffects": [
-      "*.scss"
+   "main": "es6/index.js",
+   "types:": "es6/index.d.ts",
+   "files": [
+      "es6/**/*"
    ],
    "scripts": {
       "prepublishOnly": "./node_modules/.bin/tsc --project tsconfig.build.json",
@@ -23,7 +22,10 @@
    },
    "devDependencies": {
       "@toba/develop": "^5.0.0",
-      "@toba/test": "^3.0.0"
+      "@toba/svg-transformer": "^1.1.1",
+      "@toba/test": "^3.0.0",
+      "@toba/tools": "^6.3.0",
+      "ts-node": "^8.0.2"
    },
    "repository": {
       "type": "git",

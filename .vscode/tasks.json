@@ -15,8 +15,8 @@
       },
       {
          "label": "Build",
-         "command": "./node_modules/.bin/tsc",
-         "args": ["--project", "tsconfig.build.json"],
+         "command": "./node_modules/.bin/ts-node",
+         "args": ["src/transform.ts"],
          "presentation": {
             "clear": true
          },
