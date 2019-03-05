@@ -79,6 +79,7 @@ async function main() {
    });
 
    writeFile('index', out);
+   writeFile('index', out, 'd.ts');
 }
 
 /**
@@ -140,14 +141,17 @@ function convert(file: File) {
       }
       const webJSX = normalize(svgToJSX(data), file.name);
       const mobileJSX = normalize(svgToJSX(data, true), file.name);
+      const def = `import React from 'react';
+declare const ${file.name}SVG: React.FunctionComponent<React.SVGProps<any>>;`;
 
       writeFile(file.slug, webJSX);
-      writeFile(file.slug + '.mobile', mobileJSX);
+      writeFile(file.slug, mobileJSX, 'mobile.js');
+      writeFile(file.slug, def, 'd.ts');
    });
 }
 
-function writeFile(name: string, data: string) {
-   fs.writeFile(path.resolve(dist, name + '.js'), data, err => {
+function writeFile(name: string, data: string, ext = 'js') {
+   fs.writeFile(path.resolve(dist, name + '.' + ext), data, err => {
       if (is.value(err)) {
          console.log(err);
       }
