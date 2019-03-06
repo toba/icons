@@ -20,7 +20,7 @@
       "prepublishOnly": "./node_modules/.bin/ts-node ./src/transform.ts"
    },
    "devDependencies": {
-      "@toba/develop": "^5.0.0",
+      "@toba/develop": "^6.0.0",
       "@toba/svg-transformer": "^1.1.1",
       "@toba/tools": "^6.3.0",
       "ts-node": "^8.0.2"
