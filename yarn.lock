@@ -248,9 +248,9 @@
     "@types/node" "^11.0.0"
 
 "@toba/svg-transformer@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@toba/svg-transformer/-/svg-transformer-1.5.0.tgz#be1e8e250f6e1c0356c532233f77f3d88ec8c565"
-  integrity sha512-dbF/9V4jTgDKN3XUn6jr5JzHDL6Q0hZ+BEX+rEcdycFzX37D8TPIh5XqHzEjRlOhJUJkcke1FWpr/25yBO07jw==
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@toba/svg-transformer/-/svg-transformer-1.5.1.tgz#b67971275a7bc9c0e48530f68f16af192db54240"
+  integrity sha512-JLtv0YCSDSrdp597vIlUTWGbFVBIPh9tDIJ3tT2MnE1vQ8Uw6di56mtKJxZa6IqTxwHl8gEkBiFlTuGDx/gK8g==
   dependencies:
     "@svgr/core" "^4.1.0"
     "@svgr/plugin-jsx" "^4.1.0"
