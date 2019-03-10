@@ -12,6 +12,6 @@ export const icons: { [key: string]: string } = {
    Logo: 'Toba Logo',
    NavMenuHorizontal: 'navigation-menu-horizontal',
    NavMenuVertical: 'navigation-menu-vertical',
-   Settings: 'ic_settings_48px',
+   Settings: 'cog',
    Yahoo: 'Yahoo'
 };
