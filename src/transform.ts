@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { is, slug, Encoding } from '@toba/tools/cjs';
+import { is, slug, Encoding } from '@toba/node-tools';
 import { svgToJSX } from '@toba/svg-transformer';
 import { icons } from './index';
 

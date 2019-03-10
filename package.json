@@ -1,6 +1,6 @@
 {
    "name": "@toba/icons",
-   "version": "1.1.0",
+   "version": "1.1.1",
    "description": "Toba icons",
    "private": false,
    "author": {
@@ -16,13 +16,14 @@
    "files": [
       "es6/**/*"
    ],
+   "sideEffects": "none",
    "scripts": {
       "prepublishOnly": "./node_modules/.bin/ts-node ./src/transform.ts"
    },
    "devDependencies": {
       "@toba/develop": "^6.0.0",
-      "@toba/svg-transformer": "^1.1.1",
-      "@toba/tools": "^6.3.0",
+      "@toba/node-tools": "^1.2.0",
+      "@toba/svg-transformer": "^1.5.0",
       "ts-node": "^8.0.2"
    },
    "repository": {
