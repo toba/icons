@@ -248,9 +248,9 @@
     "@types/node" "^11.0.0"
 
 "@toba/svg-transformer@^1.5.0":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@toba/svg-transformer/-/svg-transformer-1.5.1.tgz#b67971275a7bc9c0e48530f68f16af192db54240"
-  integrity sha512-JLtv0YCSDSrdp597vIlUTWGbFVBIPh9tDIJ3tT2MnE1vQ8Uw6di56mtKJxZa6IqTxwHl8gEkBiFlTuGDx/gK8g==
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@toba/svg-transformer/-/svg-transformer-1.5.2.tgz#40913d01fd6eb9714fb7951512f83d39c3b76b11"
+  integrity sha512-6V3GHIyhB7voxQMpWs+dFeMkL2qX8h4vhxDDpfN//VZoYnIl49o0y2gCgqeszbGrHvvIKV0Mjz0Cz0d6Bx+Z4g==
   dependencies:
     "@svgr/core" "^4.1.0"
     "@svgr/plugin-jsx" "^4.1.0"
@@ -607,9 +607,9 @@ camelcase@^5.0.0:
   integrity sha512-IXFsBS2pC+X0j0N/GE7Dm7j3bsEBp+oTpb7F50dwEVX7rf3IgwO9XatnegTsDtniKCUtEJH4fSU6Asw7uoVLfQ==
 
 caniuse-lite@^1.0.30000939, caniuse-lite@^1.0.30000940:
-  version "1.0.30000942"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000942.tgz#454139b28274bce70bfe1d50c30970df7430c6e4"
-  integrity sha512-wLf+IhZUy2rfz48tc40OH7jHjXjnvDFEYqBHluINs/6MgzoNLPf25zhE4NOVzqxLKndf+hau81sAW0RcGHIaBQ==
+  version "1.0.30000943"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000943.tgz#00b25bd5808edc2ed1cfb53533a6a6ff6ca014ee"
+  integrity sha512-nJMjU4UaesbOHTcmz6VS+qaog++Fdepg4KAya5DL/AZrL/aaAZDGOOQ0AECtsJa09r4cJBdHZMive5mw8lnQ5A==
 
 ccount@^1.0.0, ccount@^1.0.3:
   version "1.0.3"
