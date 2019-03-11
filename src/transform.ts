@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { is, slug, Encoding } from '@toba/node-tools';
 import { svgToJSX } from '@toba/svg-transformer';
+import { IconFiles } from './config';
 import { icons } from './index';
 
 /** Index of all files in the SVG path. */
@@ -22,7 +23,7 @@ interface File {
  * @example
  * /Volumes/GoogleDrive/My Drive/Business/Toba/Technical/Assets/IconJar.ijlibrary/Sets
  */
-async function main(icons: { [key: string]: string }) {
+async function main(icons: IconFiles) {
    const svgPath = process.env[pathKey];
 
    if (is.empty(svgPath)) {
@@ -106,14 +107,11 @@ const loadFiles = (dir: string) =>
  * @param icons Component name mapped to file name
  * @param index All SVG files
  */
-function findFiles(
-   icons: { [key: string]: string },
-   index: Map<string, string>
-) {
+function findFiles(icons: IconFiles, index: Map<string, string>) {
    const matches: File[] = [];
 
    Object.keys(icons).forEach(name => {
-      const svgSlug = slug(icons[name])!;
+      const svgSlug = slug(icons[name].name)!;
       const fileName = svgSlug + '.svg';
 
       console.log(`Searching for ${fileName}`);
