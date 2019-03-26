@@ -18,56 +18,6 @@ interface File {
 }
 
 /**
- * Entry method to load and convert mapped SVG files.
- * @param icons Component name mapped to file name
- * @example
- * /Volumes/GoogleDrive/My Drive/Business/Toba/Technical/Assets/IconJar.ijlibrary/Sets
- */
-async function main(icons: IconFiles) {
-   const svgPath = process.env[pathKey];
-
-   if (is.empty(svgPath)) {
-      console.error(
-         `❌ SVG path must be defined in the environment variable ${pathKey}`
-      );
-      return;
-   }
-   console.log(`Beginning SVG transformation from\n${svgPath}`);
-
-   if (await !canRead(svgPath)) {
-      console.error('❌ SVG path does not exist or is not readable');
-      return;
-   }
-   await loadFiles(svgPath);
-
-   if (index.size === 0) {
-      console.error('❓No SVG files were found');
-      return;
-   }
-
-   console.log(`Found ${index.size} SVG files`);
-
-   if (await canWrite(dist)) {
-      console.log('🚽 Removing existing components');
-      await empty(dist);
-   } else {
-      console.log('✨Creating output directory');
-      fs.mkdirSync(dist);
-   }
-
-   const matches = findFiles(icons, index);
-   let out: string = '';
-
-   matches.forEach(f => {
-      convert(f);
-      out += `export { ${f.name}SVG } from './${f.slug}';\n`;
-   });
-
-   writeFile('index', out);
-   writeFile('index', out, 'd.ts');
-}
-
-/**
  * Whether SVG path can be accessed by the current user.
  */
 const canAccess = (dir: string, accessType: number) =>
@@ -156,6 +106,26 @@ const empty = (dir: string) =>
    });
 
 /**
+ * Adjust the SVGR generated component. SVGR supports custom templates to
+ * manipulate the AST but this is simpler.
+ */
+const normalize = (jsx: string, fileName: string) =>
+   jsx
+      .replace('const SvgComponent', `export const ${fileName}SVG`)
+      .replace(/\s+export default SvgComponent;/, '');
+
+/**
+ * Write file content to standard output path.
+ */
+function writeFile(name: string, data: string, ext = 'js') {
+   fs.writeFile(path.resolve(dist, name + '.' + ext), data, err => {
+      if (is.value(err)) {
+         console.log(err);
+      }
+   });
+}
+
+/**
  * Create React Component and TypesScript definition files from SVG content.
  * @param file Matched SVG file
  * @see https://www.smooth-code.com/open-source/svgr/docs/typescript/
@@ -180,23 +150,53 @@ declare const ${
 }
 
 /**
- * Write file content to standard output path.
+ * Entry method to load and convert mapped SVG files.
+ * @param icons Component name mapped to file name
+ * @example
+ * /Volumes/GoogleDrive/My Drive/Business/Toba/Technical/Assets/IconJar.ijlibrary/Sets
  */
-function writeFile(name: string, data: string, ext = 'js') {
-   fs.writeFile(path.resolve(dist, name + '.' + ext), data, err => {
-      if (is.value(err)) {
-         console.log(err);
-      }
-   });
-}
+async function main(icons: IconFiles) {
+   const svgPath = process.env[pathKey];
 
-/**
- * Adjust the SVGR generated component. SVGR supports custom templates to
- * manipulate the AST but this is simpler.
- */
-const normalize = (jsx: string, fileName: string) =>
-   jsx
-      .replace('const SvgComponent', `export const ${fileName}SVG`)
-      .replace(/\s+export default SvgComponent;/, '');
+   if (is.empty(svgPath)) {
+      console.error(
+         `❌ SVG path must be defined in the environment variable ${pathKey}`
+      );
+      return;
+   }
+   console.log(`Beginning SVG transformation from\n${svgPath}`);
+
+   if (await !canRead(svgPath)) {
+      console.error('❌ SVG path does not exist or is not readable');
+      return;
+   }
+   await loadFiles(svgPath);
+
+   if (index.size === 0) {
+      console.error('❓No SVG files were found');
+      return;
+   }
+
+   console.log(`Found ${index.size} SVG files`);
+
+   if (await canWrite(dist)) {
+      console.log('🚽 Removing existing components');
+      await empty(dist);
+   } else {
+      console.log('✨Creating output directory');
+      fs.mkdirSync(dist);
+   }
+
+   const matches = findFiles(icons, index);
+   let out = '';
+
+   matches.forEach(f => {
+      convert(f);
+      out += `export { ${f.name}SVG } from './${f.slug}';\n`;
+   });
+
+   writeFile('index', out);
+   writeFile('index', out, 'd.ts');
+}
 
 main(icons);
